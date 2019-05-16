@@ -56,13 +56,14 @@ function pickNextAthlete() {
     guessesRemaining = 10;
     guessedLetters = [];
     currentWord = new Word (athletes[currentID].athName);
-    console.log("Guess the word!!");
-    console.log("Hint: " + athletes[currentID].athHint);
-    console.log(currentWord + "")
+    console.log("Guess the word!!\n");
+    console.log("Hint: " + athletes[currentID].athHint +"\n");
+    console.log(currentWord +"\n")
     getGuess();
 };
 
 var currentWord;
+console.log("\n")
 pickNextAthlete();
 
 function getGuess() {
@@ -70,15 +71,15 @@ function getGuess() {
     .prompt([
         {
             type: "input",
-            message: "Guess a letter!",
+            message: "Guess a letter!\n",
             name: "myGuess",
             validate: function(value) {
                 if (!alphabet.includes(value)) {
-                    return "That's not a letter!! Try Again!";
+                    return "That's not a letter!! Try Again!\n";
                 } else if (value.length > 1) {
-                    return "You entered more than a single letter!! Try Again!";
+                    return "You entered more than a single letter!! Try Again!\n";
                 } else if (guessedLetters.includes(value)) {
-                    return "You've already tried that letter!! Try Again!";
+                    return "You've already tried that letter!! Try Again!\n";
                 } else {
                     return true;
                 }
@@ -89,26 +90,29 @@ function getGuess() {
         currentWord.CheckLetter(response.myGuess);
         guessedLetters.push(response.myGuess)
         if (currentWord.myWord.toLowerCase().includes(response.myGuess.toLowerCase())) {
-            console.log(currentWord + "")
-            console.log('\x1b[32m%s\x1b[0m',"Correct!!!")
+            console.log(currentWord+"\n")
+            console.log('\x1b[32m%s\x1b[0m',"Correct!!!\n")
             if (currentWord.wordGuessedCorrectly) {
-                console.log("You got it right! Next word!")
+                console.log("You got it right! Next word!\n")
                 numCorrect++;
                 pickNextAthlete();
             } else {
                 getGuess();
             }
         } else {
-            console.log(currentWord + "")
-            console.log('\x1b[31m%s\x1b[0m',"Incorrect!!!")
+            console.log(currentWord+"\n")
+            console.log('\x1b[31m%s\x1b[0m',"Incorrect!!!\n")
             guessesRemaining--;
-            console.log("Guesses remaining " + guessesRemaining + "!!!")
+            console.log("Guesses remaining " + guessesRemaining + "!!!\n")
             if (guessesRemaining > 0) {
                 getGuess();
+            } else if (numCorrect>1) {
+                console.log('\x1b[31m%s\x1b[0m',"Game Over!!!\n")
+                console.log("You got " + numCorrect + " words correct.\n")
             } else {
-                console.log('\x1b[31m%s\x1b[0m',"Game Over!!!")
-                console.log("You got " + numCorrect + " words correct.")
-            }
+                console.log('\x1b[31m%s\x1b[0m',"Game Over!!!\n")
+                console.log("You got 1 word correct.\n")
+            } 
         }
     });
 };
