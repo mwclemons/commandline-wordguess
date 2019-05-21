@@ -25,4 +25,5 @@ This app has 3 files:
 
 
 **Game Image #1:** ![guess-a-letter](https://github.com/mwclemons/commandline-wordguess/raw/master/images/guess-a-letter.png)
+
 **Game Image #2:** ![incorrect-guess](https://github.com/mwclemons/commandline-wordguess/raw/master/images/incorrect-guess.png)
