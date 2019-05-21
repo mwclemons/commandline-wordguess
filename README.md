@@ -22,3 +22,7 @@ This app has 3 files:
     - this file reuses some of the logic from the html version of the word guess game including the array of guessable words.  
     - An athlete is randomly selected from the array of guessable words.  The logic that does this random selection makes sure that a new athlete is picked every time, at least until the entire array has been exhausted. 
     - the main function in this file is a recursive function called getGuess that first validates that the user's input is a valid guess, then based on the valid guess will either update the screen by displaying the letter in the word or telling the user that the guessed letter is not in the word.  There is also logic to limit the number of guesses the user has to 10.  The game is over when the user misses a word. 
+
+
+**Game Image #1:** ![guess-a-letter](https://github.com/mwclemons/commandline-wordguess/raw/master/images/guess-a-letter.png)
+**Game Image #2:** ![incorrect-guess](https://github.com/mwclemons/commandline-wordguess/raw/master/images/incorrect-guess.png)
